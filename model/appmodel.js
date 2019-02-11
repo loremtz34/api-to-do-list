@@ -5,7 +5,9 @@ var sql = require('../db');
 var Task = function (task) {
     this.task = task.task;
     this.status = task.status;
+    this.user =task.user;
 };
+
 Task.createTask = function createUser(newTask, result) {
     sql.query("INSERT INTO tasks set ?", newTask, function (err) {
         if (err) {
@@ -55,11 +57,15 @@ Task.updateById = function (id, task, result) {
             console.log("error: ", err);
             result(null, err);
         }
-        else {
-            result(null, res);
-        }
     });
-    sql.query
+    sql.query("Select * from tasks WHERE id = ?",[id], function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        console.log('last inserted task: ', res);
+        result( res);
+    });
 };
 Task.remove = function (id, result) {
     sql.query("DELETE FROM tasks WHERE id = ?", [id], function (err, res) {
