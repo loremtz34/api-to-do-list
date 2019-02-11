@@ -59,6 +59,7 @@ Task.updateById = function (id, task, result) {
             result(null, res);
         }
     });
+    sql.query
 };
 Task.remove = function (id, result) {
     sql.query("DELETE FROM tasks WHERE id = ?", [id], function (err, res) {

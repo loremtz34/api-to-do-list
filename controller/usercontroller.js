@@ -30,16 +30,16 @@ exports.create_a_user = function(req, res) {
   //handles null error 
    if(!new_user.name){
 
-            res.status(400).send({ error:true, message: 'Please provide a name' });
+    res.status(400).send({ error:true, message: 'Please provide a name' });
 
-        }
+  }
 else{
   
-    User.createUser(new_user, function(err, user) {
+    User.createUser(new_user, function(err, user_id) {
     
     if (err)
       res.send(err);
-    res.json(user);
+    res.json(user_id);
   });
 }
 };

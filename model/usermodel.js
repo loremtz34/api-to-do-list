@@ -3,7 +3,7 @@ var sql = require('../db');
 
 //User object constructor
 var User = function(name){
-    this.name = nameq;
+    this.name = name.name;
 };
 
 User.createUser = function createUser(newUser, result) {    
@@ -13,10 +13,14 @@ User.createUser = function createUser(newUser, result) {
                     console.log("error: ", err);
                     result(err, null);
                 }
-                else{
-                    console.log(res.insertId);
-                    result(null, res.insertId);
-                }
+                sql.query("Select * from users ORDER BY id DESC LIMIT 1", function (err, res) {
+                    if (err) {
+                        console.log("error: ", err);
+                        result(null, err);
+                    }
+                    console.log('last inserted task: ', res);
+                    result( res);
+                });
             });           
 };
 User.getUserById = function createUser(userId, result) {
