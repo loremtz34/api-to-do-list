@@ -1,6 +1,6 @@
 'use strict';
 
-var Task = require('../model/appModel.js');
+var Task = require('../model/appmodel.js');
 
 exports.list_all_tasks = function (req, res) {
   Task.getAllTask(function (err, task) {

@@ -52,7 +52,7 @@ Task.getAllTask = function getAllTask(result) {
     });
 };
 Task.updateById = function (id, task, result) {
-    sql.query("UPDATE tasks SET task = ? WHERE id = ?", [task.task, id], function (err, res) {
+    sql.query("UPDATE tasks SET task = ?, status= ?, user= ? WHERE id = ?", [task.task,task.status,task.user, id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
