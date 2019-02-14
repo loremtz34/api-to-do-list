@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-02-2019 a las 22:37:33
+-- Tiempo de generación: 14-02-2019 a las 04:33:00
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 5.6.37
 
@@ -32,7 +32,7 @@ CREATE TABLE `tasks` (
   `id` int(11) NOT NULL,
   `task` varchar(200) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `user` varchar(200) DEFAULT NULL
+  `user` int(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -40,9 +40,12 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `task`, `status`, `user`) VALUES
-(26, 'ivan florez', 1, NULL),
-(29, 'leer manga', 1, NULL),
-(37, 'sdfsdf', 1, NULL);
+(26, 'bath', 2, 16),
+(29, 'study', 1, 13),
+(37, 'eat', 1, 13),
+(38, 'sleep', 2, 16),
+(39, 'walk', 1, NULL),
+(40, 'exercise', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -60,9 +63,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`) VALUES
-(13, 'fwfew'),
+(13, 'Ivan'),
 (16, 'lore'),
-(17, 'weffwe');
+(17, 'lina'),
+(18, 'maria'),
+(19, 'manuel'),
+(20, 'jose'),
+(21, 'andrea');
 
 --
 -- Índices para tablas volcadas
@@ -88,13 +95,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
